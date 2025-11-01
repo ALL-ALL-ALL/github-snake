@@ -2,10 +2,11 @@ name: Generate Pac-Man
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # toutes les 12 h (mets "0 0 * * *" si tu veux 1/jour)
+    - cron: "0 0 * * *"   # Tous les jours à minuit
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -18,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate pacman SVG
+      - name: Generate Pac-Man SVG
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: all-all-all
